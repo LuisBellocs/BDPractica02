@@ -1,8 +1,38 @@
+import csv
+
 class Sucursal:
+
+    @staticmethod
+    def agrega():
+        sucursales = open('sucursales.csv', 'a')
     
-    def __init__(self, nombre, direccion, telefonos, fecha_apertura):
+        id = input("código de sucursal: \n")
+        nombre = input("Nombre: \n")
+        direccion = input("Dirección: \n")
+        telefonos = input("Números de teléfono (separados por ';'): \n")
+        apertura = input("Fecha de apertura (dd/mm/aaaa): \n")
+
+        with sucursales:
+            writer = csv.writer(sucursales, delimiter=',')
+            writer.writerow([id, nombre, direccion,
+                            telefonos, apertura])
+        
+        sucursales.close()
+        
+    @staticmethod
+    def edita(id):
+        sucursales = open("sucursales.csv")
+        with sucursales:
+            reader = csv.reader(sucursales)
+            close()
+                #TODO implementar método
     
-        self.nombre = nombre
-        self.direccion = direccion
-        self.telefonos = telefonos
-        self.fecha_apertura = fecha_apertura
+    @staticmethod
+    def elimina(id):
+        sucursales = open("sucursales.csv")
+        with sucursales:
+            reader = csv.reader(sucursales)
+            close()
+                #TODO implementar método
+            
+            
