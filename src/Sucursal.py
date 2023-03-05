@@ -8,16 +8,9 @@ class Sucursal:
     def agrega():
         sucursales = open('sucursales.csv', 'a')
     
-        id = input("código de sucursal: \n")
-        nombre = input("Nombre: \n")
-        direccion = input("Dirección: \n")
-        telefonos = input("Números de teléfono (separados por ';'): \n")
-        apertura = input("Fecha de apertura (dd/mm/aaaa): \n")
-
         with sucursales:
             writer = csv.writer(sucursales, delimiter=',')
-            writer.writerow([id, nombre, direccion,
-                            telefonos, apertura])
+            writer.writerow(Sucursal.get_datos())
         
         sucursales.close()
         
@@ -39,13 +32,7 @@ class Sucursal:
                 writer = csv.writer(sucursales, delimiter=',')
                 for sucursal in reader:
                     if (sucursal[0] == id and Sucursal.debe_editarse):
-                        id = input("código de sucursal: \n")
-                        nombre = input("Nombre: \n")
-                        direccion = input("Dirección: \n")
-                        telefonos = input("Números de teléfono (separados por ';'): \n")
-                        apertura = input("Fecha de apertura (dd/mm/aaaa): \n")
-                        listaSucursales.append([id, nombre, direccion,
-                            telefonos, apertura])
+                        listaSucursales.append(Sucursal.get_datos())
                     if (sucursal[0] != id):
                         listaSucursales.append(sucursal)
 
@@ -53,4 +40,13 @@ class Sucursal:
         with nuevasSucursales:
             writer = csv.writer(nuevasSucursales)
             writer.writerows(listaSucursales)
+
+    @staticmethod
+    def get_datos():
+        id = input("código de sucursal: \n")
+        nombre = input("Nombre: \n")
+        direccion = input("Dirección: \n")
+        telefonos = input("Números de teléfono (separados por ';'): \n")
+        apertura = input("Fecha de apertura (dd/mm/aaaa): \n")
+        return [id, nombre, direccion, telefonos, apertura]
         
