@@ -7,18 +7,10 @@ class Empleado:
     @staticmethod
     def agrega():
         empleados = open('empleados.csv', 'a')
-        
-        curp = input("CURP: \n")
-        nombre = input("Nombre: \n")
-        direccion = input("Dirección: \n")
-        correos = input("Correos (separados por ';'): \n")
-        celulares = input("Números de celular (separados por ';'): \n")
-        nacimiento = input("Fecha de nacimiento (dd/mm/aaaa): \n")
-        
+                
         with empleados:
             writer = csv.writer(empleados, delimiter=',')
-            writer.writerow([curp, nombre, direccion, correos,
-                             celulares, nacimiento])
+            writer.writerow(Empleado.get_datos())            
             
         empleados.close()
 
@@ -41,14 +33,7 @@ class Empleado:
             writer = csv.writer(empleados, delimiter=',')
             for empleado in reader:
                 if (empleado[0] == id and Empleado.debe_editarse):
-                    curp = input("CURP: \n")
-                    nombre = input("Nombre: \n")
-                    direccion = input("Dirección: \n")
-                    correos = input("Correos (separados por ';'): \n")
-                    celulares = input("Números de celular (separados por ';'): \n")
-                    nacimiento = input("Fecha de nacimiento (dd/mm/aaaa): \n")
-                    listaEmpleados.append([curp, nombre, direccion, correos,
-                                           celulares, nacimiento])
+                    listaEmpleados.append(Empleado.get_datos())
                 if (empleado[0] != id):
                     listaEmpleados.append(empleado)
 
@@ -56,4 +41,15 @@ class Empleado:
         with nuevosEmpleados:
             writer = csv.writer(nuevosEmpleados)
             writer.writerows(listaEmpleados)
+
+    @staticmethod
+    def get_datos():
+        curp = input("CURP: \n")
+        nombre = input("Nombre: \n")
+        direccion = input("Dirección: \n")
+        correos = input("Correos (separados por ';'): \n")
+        celulares = input("Números de celular (separados por ';'): \n")
+        nacimiento = input("Fecha de nacimiento (dd/mm/aaaa): \n")
+        return [curp, nombre, direccion, correos,
+                celulares, nacimiento]
         
