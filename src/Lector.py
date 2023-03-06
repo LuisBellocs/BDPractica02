@@ -7,7 +7,7 @@ class Lector:
         dato = ""
         try:
             with open(f'{cadenaEntidad}.csv') as entidad:
-                reader = csv.reader(entidad) 
+                reader = csv.reader(entidad, delimiter='æ') 
                 for fila in reader:
                     if (fila[0] == id):
                         dato = fila

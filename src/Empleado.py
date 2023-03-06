@@ -10,7 +10,7 @@ class Empleado:
     def agrega():
         empleados = open('empleados.csv', 'a')
         with empleados:
-            writer = csv.writer(empleados, delimiter=',')
+            writer = csv.writer(empleados, delimiter='æ')
             writer.writerow(Empleado.get_datos())
         empleados.close()
 
@@ -29,8 +29,8 @@ class Empleado:
     def elimina_o_edita(id):
         listaEmpleados = []
         with open('empleados.csv', 'r+') as empleados:
-            reader = csv.reader(empleados)
-            writer = csv.writer(empleados, delimiter=',')
+            reader = csv.reader(empleados, delimiter='æ')
+            writer = csv.writer(empleados, delimiter='æ')
             for empleado in reader:
                 if (empleado[0] == id and Empleado.debe_editarse):
                     listaEmpleados.append(Empleado.get_datos())
@@ -39,7 +39,7 @@ class Empleado:
 
         nuevosEmpleados = open('empleados.csv', 'w')
         with nuevosEmpleados:
-            writer = csv.writer(nuevosEmpleados)
+            writer = csv.writer(nuevosEmpleados, delimiter='æ')
             writer.writerows(listaEmpleados)
 
     @staticmethod
@@ -154,8 +154,8 @@ class Empleado:
     @staticmethod
     def existe_sucursal(id_sucursal):
         with open('sucursales.csv', 'r+') as sucursales:
-            reader = csv.reader(sucursales)
-            writer = csv.writer(sucursales, delimiter=',')
+            reader = csv.reader(sucursales, delimiter='æ')
+            writer = csv.writer(sucursales, delimiter='æ')
             for sucursal in reader:
                 if (sucursal[0] == id_sucursal):
                     return True

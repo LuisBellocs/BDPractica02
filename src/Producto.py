@@ -10,7 +10,7 @@ class Producto:
     def agrega():
         productos = open('productos.csv', 'a')
         with productos:
-            writer = csv.writer(productos, delimiter=',')
+            writer = csv.writer(productos, delimiter='æ')
             writer.writerow(Producto.get_datos())
             
         productos.close()
@@ -29,8 +29,8 @@ class Producto:
     def decide_edita_elimina(id):
         listaProductos = []
         with open('productos.csv', 'r+') as productos:
-                reader = csv.reader(productos)
-                writer = csv.writer(productos, delimiter=',')
+                reader = csv.reader(productos, delimiter='æ')
+                writer = csv.writer(productos, delimiter='æ')
                 for producto in reader:
                     if (producto[0] == id and Producto.debe_editar):
                         listaProductos.append(Producto.get_datos())
@@ -39,7 +39,7 @@ class Producto:
 
         nuevosProductos = open('productos.csv', 'w')
         with nuevosProductos:
-            writer = csv.writer(nuevosProductos)
+            writer = csv.writer(nuevosProductos, delimiter='æ')
             writer.writerows(listaProductos)
 
     @staticmethod
