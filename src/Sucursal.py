@@ -69,33 +69,28 @@ class Sucursal:
                         print("Ya existe una sucursal con esa ID, intente de nuevo.")
                         id = -1
             except:
-                print("El ID debe ser numérico")
+                print("El ID debe ser numérico, intente de nuevo.")
                 id = -1
         return id
 
     @staticmethod
-    def checarIDAux():
-        id = input("Codigo de sucursal: \n")
-        while(True):
-            if (!id.isdigit()):
-                print("Debe ser un entero positivo")
-
     def checarTel():
         dato = ""
         while(dato == ""):
             dato = input("Números de teléfono (separados por ';'): \n")
             telefonos = dato.split(";")
             for numero in telefonos:
-                if(len(numero) < 1):
-                    print("Dato inválido, intente de nuevo.")
+                if(len(numero) < 7):
+                    print("Alguno de los datos es inválido, intente de nuevo.")
                     dato = ""
                 try:
                     num = int(numero)
                 except:
-                    print("Dato inválido, intente de nuevo.")
+                    print("Alguno de los datos es inválido, intente de nuevo.")
                     dato = ""
         return dato
 
+    @staticmethod
     def checarFecha():
         dato = ""
         while(dato == ""):
