@@ -31,11 +31,15 @@ class Producto:
         with open('productos.csv', 'r+') as productos:
                 reader = csv.reader(productos, delimiter='æ')
                 writer = csv.writer(productos, delimiter='æ')
+                existe = False
                 for producto in reader:
                     if (producto[0] == id and Producto.debe_editar):
                         listaProductos.append(Producto.get_datos())
+                        existe = True
                     if (producto[0] != id):
                         listaProductos.append(producto)
+                if (not existe):
+                    print(f"No se encontraron productos con el ID {id}")
 
         nuevosProductos = open('productos.csv', 'w')
         with nuevosProductos:

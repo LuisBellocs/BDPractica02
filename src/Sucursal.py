@@ -32,11 +32,15 @@ class Sucursal:
         with open('sucursales.csv', 'r+') as sucursales:
                 reader = csv.reader(sucursales, delimiter='æ')
                 writer = csv.writer(sucursales, delimiter='æ')
+                existe = False
                 for sucursal in reader:
                     if (sucursal[0] == id and Sucursal.debe_editarse):
                         listaSucursales.append(Sucursal.get_datos())
+                        existe = True
                     if (sucursal[0] != id):
                         listaSucursales.append(sucursal)
+                if (not existe):
+                    print(f"No se encontraron sucursales con el ID {id}")
 
         nuevasSucursales = open('sucursales.csv', 'w')
         with nuevasSucursales:

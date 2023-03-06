@@ -31,11 +31,15 @@ class Empleado:
         with open('empleados.csv', 'r+') as empleados:
             reader = csv.reader(empleados, delimiter='æ')
             writer = csv.writer(empleados, delimiter='æ')
+            existe = False
             for empleado in reader:
                 if (empleado[0] == id and Empleado.debe_editarse):
                     listaEmpleados.append(Empleado.get_datos())
+                    existe = True
                 if (empleado[0] != id):
                     listaEmpleados.append(empleado)
+            if (not existe):
+                print(f"No se enncontraron empleados la CURP {id}")
 
         nuevosEmpleados = open('empleados.csv', 'w')
         with nuevosEmpleados:
@@ -149,7 +153,7 @@ class Empleado:
     @staticmethod
     def checarSucursal():
         while (True):
-            id_sucursal = input("Agrega la id de la id_sucursal: \n")
+            id_sucursal = input("Agrega el id de la sucursal: \n")
             if (not id_sucursal.isdigit()):
                 print("La id debe de ser un numero entero positivo")
             elif (not Empleado.existe_sucursal(id_sucursal)):
