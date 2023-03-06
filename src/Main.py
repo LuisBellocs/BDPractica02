@@ -53,11 +53,9 @@ class Main:
                 id = input("ID/CURP: ")
 
         if (accion == 2):
-            dato = Lector.lee(entidad, id)
+            dato = Lector.imprime(entidad, id)
             if(dato == ""):
                 print(f"El ID {id} no pudo ser encontrado.")
-            else:
-                print(dato)
         else:
             if (entidad == 1):
                 if (accion == 1):
@@ -80,6 +78,11 @@ class Main:
                     Sucursal.edita(id)
                 else:
                     Sucursal.elimina(id)
+    main()        
 
     if __name__ == "__main__":
         main()
+
+
+#TODO Opción de salir
+#TODO Checar si debería repetirse el código para múltiples acciones en una ejecución
