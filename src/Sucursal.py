@@ -11,7 +11,7 @@ class Sucursal:
         sucursales = open('sucursales.csv', 'a')
     
         with sucursales:
-            writer = csv.writer(sucursales, delimiter=',')
+            writer = csv.writer(sucursales, delimiter='æ')
             writer.writerow(Sucursal.get_datos())
         
         sucursales.close()
@@ -30,8 +30,8 @@ class Sucursal:
     def elimina_o_edita(id):
         listaSucursales = []
         with open('sucursales.csv', 'r+') as sucursales:
-                reader = csv.reader(sucursales)
-                writer = csv.writer(sucursales, delimiter=',')
+                reader = csv.reader(sucursales, delimiter='æ')
+                writer = csv.writer(sucursales, delimiter='æ')
                 for sucursal in reader:
                     if (sucursal[0] == id and Sucursal.debe_editarse):
                         listaSucursales.append(Sucursal.get_datos())
@@ -40,7 +40,7 @@ class Sucursal:
 
         nuevasSucursales = open('sucursales.csv', 'w')
         with nuevasSucursales:
-            writer = csv.writer(nuevasSucursales)
+            writer = csv.writer(nuevasSucursales, delimiter='æ')
             writer.writerows(listaSucursales)
 
     @staticmethod

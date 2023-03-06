@@ -53,11 +53,9 @@ class Main:
                 id = input("ID/CURP: ")
 
         if (accion == 2):
-            dato = Lector.lee(entidad, id)
+            dato = Lector.imprime(entidad, id)
             if(dato == ""):
                 print(f"El ID {id} no pudo ser encontrado.")
-            else:
-                print(dato)
         else:
             if (entidad == 1):
                 if (accion == 1):

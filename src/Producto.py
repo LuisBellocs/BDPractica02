@@ -10,7 +10,7 @@ class Producto:
     def agrega():
         productos = open('productos.csv', 'a')
         with productos:
-            writer = csv.writer(productos, delimiter=',')
+            writer = csv.writer(productos, delimiter='æ')
             writer.writerow(Producto.get_datos())
             
         productos.close()
@@ -29,8 +29,8 @@ class Producto:
     def decide_edita_elimina(id):
         listaProductos = []
         with open('productos.csv', 'r+') as productos:
-                reader = csv.reader(productos)
-                writer = csv.writer(productos, delimiter=',')
+                reader = csv.reader(productos, delimiter='æ')
+                writer = csv.writer(productos, delimiter='æ')
                 for producto in reader:
                     if (producto[0] == id and Producto.debe_editar):
                         listaProductos.append(Producto.get_datos())
@@ -39,22 +39,22 @@ class Producto:
 
         nuevosProductos = open('productos.csv', 'w')
         with nuevosProductos:
-            writer = csv.writer(nuevosProductos)
+            writer = csv.writer(nuevosProductos, delimiter='æ')
             writer.writerows(listaProductos)
 
     @staticmethod
     def get_datos():
         id = Producto.checarID()
         precio = Producto.checarPrecio()
-        cantidad = Producto.checarInt()
+        cantidad = Producto.checarInt("Cantidad")
         nombre = input("Nombre: \n")
         marca = input("Nombre de la marca: \n")
-        tiendas = int(input("Número de tiendas con el producto: \n")) #Checar?
+        tiendas = Producto.checarInt("Número de tiendas con el producto")
         stock = ""
         for i in range(0,tiendas):
             stock += input("Nombre de la tienda {}: \n".format(i+1))
             stock += ":"
-            stock += input("Cantidad en la tienda {}: \n".format(i+1))
+            stock += str(Producto.checarInt(f"Cantidad en la tienda {i+1}"))
         refrigeracion = Producto.checarRefrigeracion()
         preparación = Producto.checarFecha("preparación")
         caducidad = Producto.checarFecha("caducidad")
@@ -115,7 +115,7 @@ class Producto:
         dato = -0.1
         while(dato == -0.1):
             try:
-                dato = input("Precio del de producto: \n")
+                dato = int(input("Precio del de producto: \n"))
                 if(dato <= 0):
                     print("Precio inválido, intente de nuevo.")
                     dato = -0.1
@@ -125,11 +125,11 @@ class Producto:
         return dato
     
     @staticmethod
-    def checarInt():
+    def checarInt(mensaje):
         dato = -1
         while(dato == -1):
             try:
-                dato = input(": \n")
+                dato = int(input(f"{mensaje}: \n"))
                 if(dato < 0):
                     print("Dato inválido, intente de nuevo.")
                     dato = -1
