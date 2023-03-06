@@ -10,8 +10,7 @@ class Empleado:
                 
         with empleados:
             writer = csv.writer(empleados, delimiter=',')
-            writer.writerow(Empleado.get_datos())            
-            
+            writer.writerow(Empleado.get_datos())
         empleados.close()
 
         
