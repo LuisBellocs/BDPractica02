@@ -1,5 +1,6 @@
 import csv
 import datetime
+from Lector import Lector
 
 class Empleado:
 
