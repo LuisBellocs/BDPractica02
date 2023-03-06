@@ -64,27 +64,32 @@ class Empleado:
             if len(curp) != 18:
                 print("La CURP debe tener 18 caracteres.")
                 curp = ""
+                continue
 
             repetido = Lector.lee(1, id)
             if(repetido != "" and repetido[0] == id and
                 Empleado.debe_editarse == False):
                 print("Ya existe un empleado con ese CURP, intente de nuevo.")
                 curp = ""
+                continue
             
-            for i in range(17):
+            for i in range(18):
                 c = curp[i]
                 if(i < 4 or (i >= 10 and i <= 16)):                    
                     if not c.isalpha() or not c.isupper():
                         print("La CURP debe contener letras mayúsculas en las posiciones 1, 2, 3, 4 y 11.")
                         curp = ""
+                        break
                 elif(i == 10):
                     if c != 'H' and c != 'M':
                         print("La CURP debe contener H o M en la posicíon 11.")
                         curp = ""
+                        break
                 else:
                     if(not c.isdigit()):
                         print("Los caracteres del 5 al 10 y el 18 deben de ser números.")
                         curp = ""
+                        break
 
         return curp
     
@@ -111,6 +116,7 @@ class Empleado:
                 if(len(numero) < 7):
                     print("Alguno de los datos es inválido, intente de nuevo.")
                     dato = ""
+                    break
                 try:
                     num = int(numero)
                 except:
@@ -125,7 +131,7 @@ class Empleado:
             dato = input("Correo(s) electrónico(s) (separados por ';'): \n")
             emails = dato.split(";")
             for email in emails:
-                if((len(email) < 3) or ("@" not in email) or (email[1] == "@") or (email[-1] == "@")):
+                if((len(email) < 3) or ("@" not in email) or (email[0] == "@") or (email[-1] == "@")):
                     print("Alguno de los datos es inválido, intente de nuevo.")
                     dato = ""
                 

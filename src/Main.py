@@ -80,11 +80,6 @@ class Main:
                     Sucursal.edita(id)
                 else:
                     Sucursal.elimina(id)
-    main()        
 
     if __name__ == "__main__":
         main()
-
-
-#TODO Opción de salir
-#TODO Checar si debería repetirse el código para múltiples acciones en una ejecución
