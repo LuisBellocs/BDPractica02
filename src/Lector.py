@@ -3,12 +3,18 @@ import csv
 class Lector:
 
     @staticmethod
-    def imprime_fila_entidad(cadenaEntidad, id):
-        with open(f'{cadenaEntidad}.csv') as entidad:
-            reader = csv.reader(entidad) 
-            for fila in reader:
-                if (fila[0] == id):
-                    print(fila)
+    def encuentra_fila_entidad(cadenaEntidad, id):
+        dato = ""
+        try:
+            with open(f'{cadenaEntidad}.csv') as entidad:
+                reader = csv.reader(entidad) 
+                for fila in reader:
+                    if (fila[0] == id):
+                        dato = fila
+        except:
+            print(f"El archivo {cadenaEntidad}.csv no pudo ser encontrado.")
+        return dato
+        
     
     @staticmethod
     def lee(entidad, id):
@@ -19,5 +25,5 @@ class Lector:
             cadenaEntidad = "productos"
         else:
             cadenaEntidad = "sucursales"
-        Lector.imprime_fila_entidad(cadenaEntidad, id)
+        return Lector.encuentra_fila_entidad(cadenaEntidad, id)
         
