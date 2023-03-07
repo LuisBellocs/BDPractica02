@@ -9,6 +9,10 @@ class Empleado:
     
     @staticmethod
     def agrega():
+        """
+        Abre el archivo csv en el que se guarda la información y escribe los 
+        datos del empleado.
+        """
         empleados = open('empleados.csv', 'a')
         with empleados:
             writer = csv.writer(empleados, delimiter='æ')
@@ -18,16 +22,42 @@ class Empleado:
         
     @staticmethod
     def edita(id):
+        """
+        Indica que el empleado debe editarse.
+
+        Parameter
+        ---------
+        id : str
+            ID del empleado.
+        """
         Empleado.debe_editarse = True
         Empleado.elimina_o_edita(id)
             
     @staticmethod
     def elimina(id):
+        """
+        Indica que el empleado debe eliminarse.
+
+        Parameter
+        ---------
+        id : str
+            ID del empleado.
+        """
         Empleado.debe_editarse = False
         Empleado.elimina_o_edita(id)
 
     @staticmethod
     def elimina_o_edita(id):
+        """
+        Elimina o edita el empleado correspondiente al ID que recibe.
+        En caso de no hallarlo, imprime un mensaje indicando que no se
+        encontró en el archivo.
+
+        Parameter
+        ---------
+        id : str
+            ID del empleado.
+        """
         listaEmpleados = []
         encontrado = False
         with open('empleados.csv', 'r+') as empleados:
@@ -53,6 +83,14 @@ class Empleado:
 
     @staticmethod
     def get_datos():
+        """
+        Junta los datos en un empleado y los coloca en un arreglo.
+
+        Returns
+        ---------
+        array
+            Datos del empleado.
+        """
         curp = Empleado.checarCurp()
         nombre = Empleado.checarNombre()
         direccion = input("Dirección: \n")
@@ -66,6 +104,14 @@ class Empleado:
     
     @staticmethod
     def checarCurp():
+        """
+        Lee la CURP del usuario; verifica su formato y que no esté repetida.
+
+        Returns
+        ---------
+        curp : str
+            CURP del empleado.
+        """
         curp = ""
         while (curp == ""):
             curp = input("Ingrese su CURP: ")
@@ -103,6 +149,14 @@ class Empleado:
     
     @staticmethod
     def checarFecha():
+        """
+        Lee la fecha de nacimiento del usuario y verifica su formato.
+
+        Returns
+        ---------
+        dato : str
+            Fecha de nacimiento del empleado.
+        """
         dato = ""
         while(dato == ""):
             dato = input("Fecha de nacimiento (dd/mm/aaaa): \n")
@@ -116,6 +170,14 @@ class Empleado:
     
     @staticmethod
     def checarTel():
+        """
+        Lee los teléfonos del usuario y verifica su formato.
+
+        Returns
+        ---------
+        dato : str
+            Teléfonos del empleado.
+        """
         dato = ""
         while(dato == ""):
             dato = input("Número(s) de teléfono (separados por ';'): \n")
@@ -134,6 +196,14 @@ class Empleado:
     
     @staticmethod
     def checarEmail():
+        """
+        Lee los correos del usuario y verifica su formato.
+
+        Returns
+        ---------
+        dato : str
+            Correos del empleado.
+        """
         dato = ""
         while(dato == ""):
             dato = input("Correo(s) electrónico(s) (separados por ';'): \n")
@@ -147,6 +217,14 @@ class Empleado:
     
     @staticmethod
     def checarNombre():
+        """
+        Lee el nombre del usuario y verifica su formato.
+
+        Returns
+        ---------
+        nombre : str
+            Combre completo del empleado.
+        """
         while True:
             nombre = input("Nombre completo (al menos un nombre y un apellido): ")
             if(all(c.isalpha() or c.isspace() for c in nombre) and len(nombre) > 2 and " " in nombre and (nombre[1] != " ") and (nombre[-1] != " ")):
@@ -156,6 +234,14 @@ class Empleado:
 
     @staticmethod
     def checarSucursal():
+        """
+        Lee el ID de la sucursal en la que trabaja el empleado.
+
+        Returns
+        ---------
+        id_sucursal : str
+            ID de la sucursal en la que trabaja el empleado.
+        """
         while (True):
             id_sucursal = input("Agrega la id de la sucursal: \n")
             if (not id_sucursal.isdigit()):
@@ -167,6 +253,19 @@ class Empleado:
 
     @staticmethod
     def existe_sucursal(id_sucursal):
+        """
+        Verifica si existe la sucursal.
+
+        Paramater
+        ---------
+        id_sucursal : str
+            ID de la sucursal
+
+        Returns
+        ---------
+        Boolean
+            Verdadero si y solo si existe la sucursal.
+        """
         try:
             with open('sucursales.csv', 'r+') as sucursales:
                 reader = csv.reader(sucursales, delimiter='æ')
@@ -180,6 +279,14 @@ class Empleado:
 
     @staticmethod
     def checarCargo():
+        """
+        Lee el cargo que tiene el empleado.
+
+        Returns
+        ---------
+        cargos[i] : int
+            Cargo del empleado.
+        """
         while (True):
             cargo = input("Ingresa el cargo (numero): [1] Gerente, [2] Encargado, [3] Cajero: ")
             if (cargo.isdigit() and int(cargo) > 0 and int(cargo) < 4):

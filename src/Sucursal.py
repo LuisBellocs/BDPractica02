@@ -8,8 +8,11 @@ class Sucursal:
     
     @staticmethod
     def agrega():
+        """
+        Abre el archivo csv en el que se guarda la información y escribe los 
+        datos de la sucursal.
+        """
         sucursales = open('sucursales.csv', 'a')
-    
         with sucursales:
             writer = csv.writer(sucursales, delimiter='æ')
             writer.writerow(Sucursal.get_datos())
@@ -18,11 +21,27 @@ class Sucursal:
         
     @staticmethod
     def edita(id):
+        """
+        Indica que la sucursal debe editarse.
+
+        Parameter
+        ---------
+        id : str
+            ID de la sucursal.
+        """
         Sucursal.debe_editarse = True
         Sucursal.elimina_o_edita(id)
     
     @staticmethod
     def elimina(id):
+        """
+        Indica que la sucursal debe eliminarse.
+
+        Parameter
+        ---------
+        id : str
+            ID de la sucursal.
+        """
         Sucursal.debe_editarse = False
         Sucursal.elimina_o_edita(id)            
 
@@ -52,6 +71,14 @@ class Sucursal:
 
     @staticmethod
     def get_datos():
+        """
+        Junta los datos de una sucursal y los coloca en un arreglo.
+
+        Returns
+        ---------
+        array
+            Datos de la sucursal.
+        """
         id = Sucursal.checarID()
         nombre = input("Nombre: \n")
         direccion = input("Dirección: \n")
@@ -61,6 +88,14 @@ class Sucursal:
 
     @staticmethod
     def checarID():
+        """
+        Lee el ID de la sucursal; verifica su formato y que no esté repetida.
+
+        Returns
+        ---------
+        id : str
+            ID de la sucursal.
+        """
         id = -1
         while(id == -1):
             try:
@@ -82,6 +117,14 @@ class Sucursal:
 
     @staticmethod
     def checarTel():
+        """
+        Lee los teléfonos de la sucursal y verifica su formato.
+
+        Returns
+        ---------
+        dato : str
+            Teléfonos de la sucursal.
+        """
         dato = ""
         while(dato == ""):
             dato = input("Números de teléfono (separados por ';'): \n")
@@ -99,6 +142,14 @@ class Sucursal:
 
     @staticmethod
     def checarFecha():
+        """
+        Lee fechas verifica y su formato.
+
+        Returns
+        ---------
+        dato : str
+            Fecha.
+        """
         dato = ""
         while(dato == ""):
             dato = input("Fecha de apertura (dd/mm/aaaa): \n")

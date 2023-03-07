@@ -9,6 +9,10 @@ class Producto:
 
     @staticmethod
     def agrega():
+        """
+        Abre el archivo csv en el que se guarda la información y escribe los 
+        datos del producto.
+        """
         productos = open('productos.csv', 'a')
         with productos:
             writer = csv.writer(productos, delimiter='æ')
@@ -18,16 +22,42 @@ class Producto:
     
     @staticmethod
     def edita(id):
+        """
+        Indica que el producto debe editarse.
+
+        Parameter
+        ---------
+        id : str
+            ID del prodcuto.
+        """
         Producto.debe_editar = True
         Producto.decide_edita_elimina(id)
     
     @staticmethod
     def elimina(id):
+        """
+        Indica que el producto debe eliminarse.
+
+        Parameter
+        ---------
+        id : str
+            ID del producto.
+        """
         Producto.debe_editar = False
         Producto.decide_edita_elimina(id)
 
     @staticmethod
     def decide_edita_elimina(id):
+        """
+        Elimina o edita el producto correspondiente al ID que recibe.
+        En caso de no hallarlo, imprime un mensaje indicando que no se
+        encontró en el archivo.
+
+        Parameter
+        ---------
+        id : str
+            ID del producto.
+        """
         listaProductos = []
         encontrado = False
         with open('productos.csv', 'r+') as productos:
@@ -53,6 +83,14 @@ class Producto:
 
     @staticmethod
     def get_datos():
+        """
+        Junta los datos de un producto y los coloca en un arreglo.
+
+        Returns
+        ---------
+        array
+            Datos del producto.
+        """
         id = Producto.checarID()
         precio = Producto.checarPrecio()
         cantidad = Producto.checarInt("Cantidad")
@@ -73,6 +111,14 @@ class Producto:
         
     @staticmethod
     def checarID():
+        """
+        Lee el ID del producto; verifica su formato y que no esté repetida.
+
+        Returns
+        ---------
+        id : str
+            ID del producto.
+        """
         id = -1
         while(id == -1):
             try:
@@ -94,6 +140,14 @@ class Producto:
 
     @staticmethod
     def checarFecha(str):
+        """
+        Lee fechas y verifica su formato.
+
+        Returns
+        ---------
+        dato : str
+            Fecha.
+        """
         dato = ""
         while(dato == ""):
             dato = input("Fecha de " + str + " (dd/mm/aaaa): \n")
@@ -107,6 +161,14 @@ class Producto:
     
     @staticmethod
     def checarRefrigeracion():
+        """
+        Lee si requiere o no refigeración el producto.
+
+        Returns
+        ---------
+        dato : str
+            si/no.
+        """
         dato = ""
         while(dato == ""):
             dato = input("Requiere refrigeración (si/no): \n")
@@ -122,6 +184,14 @@ class Producto:
     
     @staticmethod
     def checarPrecio():
+        """
+        Lee el precio del producto y verifica su formato.
+
+        Returns
+        ---------
+        dato : str
+            Precio del producto.
+        """
         dato = -0.1
         while(dato == -0.1):
             try:
@@ -136,6 +206,14 @@ class Producto:
     
     @staticmethod
     def checarInt(mensaje):
+        """
+        Lee y verifica números postivos.
+
+        Returns
+        ---------
+        dato : str
+            Número positivo.
+        """
         dato = -1
         while(dato == -1):
             try:
@@ -150,6 +228,14 @@ class Producto:
 
     @staticmethod
     def checarSucursal(numero):
+        """
+        Lee el ID de la sucursal en la que se encuentra el producto.
+
+        Returns
+        ---------
+        id_sucursal : str
+            ID de la sucursal en la que se encuentra el producto.
+        """
         while (True):
             id_sucursal = input(f"ID de la sucursal {numero}: \n")
             if (not id_sucursal.isdigit()):
@@ -161,6 +247,19 @@ class Producto:
 
     @staticmethod
     def existe_sucursal(id_sucursal):
+        """
+        Verifica si existe la sucursal.
+
+        Paramater
+        ---------
+        id_sucursal : str
+            ID de la sucursal
+
+        Returns
+        ---------
+        Boolean
+            Verdadero si y solo si existe la sucursal.
+        """
         try:
             with open('sucursales.csv', 'r+') as sucursales:
                 reader = csv.reader(sucursales, delimiter='æ')

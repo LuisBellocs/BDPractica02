@@ -7,6 +7,9 @@ import sys
 
 class Main:
     def main():
+        """
+        Función principal.
+        """
         accion = 0
         while(True):
             Menu.menuAccion()

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module Empleado</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">Empleado</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/arturogonzalezbreton/FBD/BDPractica02/src/Empleado.py">/home/arturogonzalezbreton/FBD/BDPractica02/src/Empleado.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="csv.html">csv</a><br>
+</td><td class="multicolumn"><a href="datetime.html">datetime</a><br>
+</td><td class="multicolumn"><a href="sys.html">sys</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="Empleado.html#Empleado">Empleado</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Empleado">class <strong>Empleado</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor"><span class="code">&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn">Static methods defined here:<br>
+<dl><dt><a name="Empleado-agrega"><strong>agrega</strong></a>()</dt><dd><span class="code">Abre&nbsp;el&nbsp;archivo&nbsp;csv&nbsp;en&nbsp;el&nbsp;que&nbsp;se&nbsp;guarda&nbsp;la&nbsp;información&nbsp;y&nbsp;escribe&nbsp;los&nbsp;<br>
+datos&nbsp;del&nbsp;empleado.</span></dd></dl>
+
+<dl><dt><a name="Empleado-checarCargo"><strong>checarCargo</strong></a>()</dt><dd><span class="code">Lee&nbsp;el&nbsp;cargo&nbsp;que&nbsp;tiene&nbsp;el&nbsp;empleado.<br>
+&nbsp;<br>
+Returns<br>
+---------<br>
+cargos[i]&nbsp;:&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Cargo&nbsp;del&nbsp;empleado.</span></dd></dl>
+
+<dl><dt><a name="Empleado-checarCurp"><strong>checarCurp</strong></a>()</dt><dd><span class="code">Lee&nbsp;la&nbsp;CURP&nbsp;del&nbsp;usuario;&nbsp;verifica&nbsp;su&nbsp;formato&nbsp;y&nbsp;que&nbsp;no&nbsp;esté&nbsp;repetida.<br>
+&nbsp;<br>
+Returns<br>
+---------<br>
+curp&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CURP&nbsp;del&nbsp;empleado.</span></dd></dl>
+
+<dl><dt><a name="Empleado-checarEmail"><strong>checarEmail</strong></a>()</dt><dd><span class="code">Lee&nbsp;los&nbsp;correos&nbsp;del&nbsp;usuario&nbsp;y&nbsp;verifica&nbsp;su&nbsp;formato.<br>
+&nbsp;<br>
+Returns<br>
+---------<br>
+dato&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Correos&nbsp;del&nbsp;empleado.</span></dd></dl>
+
+<dl><dt><a name="Empleado-checarFecha"><strong>checarFecha</strong></a>()</dt><dd><span class="code">Lee&nbsp;la&nbsp;fecha&nbsp;de&nbsp;nacimiento&nbsp;del&nbsp;usuario&nbsp;y&nbsp;verifica&nbsp;su&nbsp;formato.<br>
+&nbsp;<br>
+Returns<br>
+---------<br>
+dato&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fecha&nbsp;de&nbsp;nacimiento&nbsp;del&nbsp;empleado.</span></dd></dl>
+
+<dl><dt><a name="Empleado-checarNombre"><strong>checarNombre</strong></a>()</dt><dd><span class="code">Lee&nbsp;el&nbsp;nombre&nbsp;del&nbsp;usuario&nbsp;y&nbsp;verifica&nbsp;su&nbsp;formato.<br>
+&nbsp;<br>
+Returns<br>
+---------<br>
+nombre&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Combre&nbsp;completo&nbsp;del&nbsp;empleado.</span></dd></dl>
+
+<dl><dt><a name="Empleado-checarSucursal"><strong>checarSucursal</strong></a>()</dt><dd><span class="code">Lee&nbsp;el&nbsp;ID&nbsp;de&nbsp;la&nbsp;sucursal&nbsp;en&nbsp;la&nbsp;que&nbsp;trabaja&nbsp;el&nbsp;empleado.<br>
+&nbsp;<br>
+Returns<br>
+---------<br>
+id_sucursal&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ID&nbsp;de&nbsp;la&nbsp;sucursal&nbsp;en&nbsp;la&nbsp;que&nbsp;trabaja&nbsp;el&nbsp;empleado.</span></dd></dl>
+
+<dl><dt><a name="Empleado-checarTel"><strong>checarTel</strong></a>()</dt><dd><span class="code">Lee&nbsp;los&nbsp;teléfonos&nbsp;del&nbsp;usuario&nbsp;y&nbsp;verifica&nbsp;su&nbsp;formato.<br>
+&nbsp;<br>
+Returns<br>
+---------<br>
+dato&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Teléfonos&nbsp;del&nbsp;empleado.</span></dd></dl>
+
+<dl><dt><a name="Empleado-edita"><strong>edita</strong></a>(id)</dt><dd><span class="code">Indica&nbsp;que&nbsp;el&nbsp;empleado&nbsp;debe&nbsp;editarse.<br>
+&nbsp;<br>
+Parameter<br>
+---------<br>
+id&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ID&nbsp;del&nbsp;empleado.</span></dd></dl>
+
+<dl><dt><a name="Empleado-elimina"><strong>elimina</strong></a>(id)</dt><dd><span class="code">Indica&nbsp;que&nbsp;el&nbsp;empleado&nbsp;debe&nbsp;eliminarse.<br>
+&nbsp;<br>
+Parameter<br>
+---------<br>
+id&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ID&nbsp;del&nbsp;empleado.</span></dd></dl>
+
+<dl><dt><a name="Empleado-elimina_o_edita"><strong>elimina_o_edita</strong></a>(id)</dt><dd><span class="code">Elimina&nbsp;o&nbsp;edita&nbsp;el&nbsp;empleado&nbsp;correspondiente&nbsp;al&nbsp;ID&nbsp;que&nbsp;recibe.<br>
+En&nbsp;caso&nbsp;de&nbsp;no&nbsp;hallarlo,&nbsp;imprime&nbsp;un&nbsp;mensaje&nbsp;indicando&nbsp;que&nbsp;no&nbsp;se<br>
+encontró&nbsp;en&nbsp;el&nbsp;archivo.<br>
+&nbsp;<br>
+Parameter<br>
+---------<br>
+id&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ID&nbsp;del&nbsp;empleado.</span></dd></dl>
+
+<dl><dt><a name="Empleado-existe_sucursal"><strong>existe_sucursal</strong></a>(id_sucursal)</dt><dd><span class="code">Verifica&nbsp;si&nbsp;existe&nbsp;la&nbsp;sucursal.<br>
+&nbsp;<br>
+Paramater<br>
+---------<br>
+id_sucursal&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ID&nbsp;de&nbsp;la&nbsp;sucursal<br>
+&nbsp;<br>
+Returns<br>
+---------<br>
+Boolean<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Verdadero&nbsp;si&nbsp;y&nbsp;solo&nbsp;si&nbsp;existe&nbsp;la&nbsp;sucursal.</span></dd></dl>
+
+<dl><dt><a name="Empleado-get_datos"><strong>get_datos</strong></a>()</dt><dd><span class="code">Junta&nbsp;los&nbsp;datos&nbsp;en&nbsp;un&nbsp;empleado&nbsp;y&nbsp;los&nbsp;coloca&nbsp;en&nbsp;un&nbsp;arreglo.<br>
+&nbsp;<br>
+Returns<br>
+---------<br>
+array<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Datos&nbsp;del&nbsp;empleado.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>debe_editarse</strong> = False</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module Producto</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">Producto</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/arturogonzalezbreton/FBD/BDPractica02/src/Producto.py">/home/arturogonzalezbreton/FBD/BDPractica02/src/Producto.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="csv.html">csv</a><br>
+</td><td class="multicolumn"><a href="datetime.html">datetime</a><br>
+</td><td class="multicolumn"><a href="sys.html">sys</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="Producto.html#Producto">Producto</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Producto">class <strong>Producto</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor"><span class="code">&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn">Static methods defined here:<br>
+<dl><dt><a name="Producto-agrega"><strong>agrega</strong></a>()</dt><dd><span class="code">Abre&nbsp;el&nbsp;archivo&nbsp;csv&nbsp;en&nbsp;el&nbsp;que&nbsp;se&nbsp;guarda&nbsp;la&nbsp;información&nbsp;y&nbsp;escribe&nbsp;los&nbsp;<br>
+datos&nbsp;del&nbsp;producto.</span></dd></dl>
+
+<dl><dt><a name="Producto-checarFecha"><strong>checarFecha</strong></a>(str)</dt><dd><span class="code">Lee&nbsp;fechas&nbsp;y&nbsp;verifica&nbsp;su&nbsp;formato.<br>
+&nbsp;<br>
+Returns<br>
+---------<br>
+dato&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fecha.</span></dd></dl>
+
+<dl><dt><a name="Producto-checarID"><strong>checarID</strong></a>()</dt><dd><span class="code">Lee&nbsp;el&nbsp;ID&nbsp;del&nbsp;producto;&nbsp;verifica&nbsp;su&nbsp;formato&nbsp;y&nbsp;que&nbsp;no&nbsp;esté&nbsp;repetida.<br>
+&nbsp;<br>
+Returns<br>
+---------<br>
+id&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ID&nbsp;del&nbsp;producto.</span></dd></dl>
+
+<dl><dt><a name="Producto-checarInt"><strong>checarInt</strong></a>(mensaje)</dt><dd><span class="code">Lee&nbsp;y&nbsp;verifica&nbsp;números&nbsp;postivos.<br>
+&nbsp;<br>
+Returns<br>
+---------<br>
+dato&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Número&nbsp;positivo.</span></dd></dl>
+
+<dl><dt><a name="Producto-checarPrecio"><strong>checarPrecio</strong></a>()</dt><dd><span class="code">Lee&nbsp;el&nbsp;precio&nbsp;del&nbsp;producto&nbsp;y&nbsp;verifica&nbsp;su&nbsp;formato.<br>
+&nbsp;<br>
+Returns<br>
+---------<br>
+dato&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Precio&nbsp;del&nbsp;producto.</span></dd></dl>
+
+<dl><dt><a name="Producto-checarRefrigeracion"><strong>checarRefrigeracion</strong></a>()</dt><dd><span class="code">Lee&nbsp;si&nbsp;requiere&nbsp;o&nbsp;no&nbsp;refigeración&nbsp;el&nbsp;producto.<br>
+&nbsp;<br>
+Returns<br>
+---------<br>
+dato&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;si/no.</span></dd></dl>
+
+<dl><dt><a name="Producto-checarSucursal"><strong>checarSucursal</strong></a>(numero)</dt><dd><span class="code">Lee&nbsp;el&nbsp;ID&nbsp;de&nbsp;la&nbsp;sucursal&nbsp;en&nbsp;la&nbsp;que&nbsp;se&nbsp;encuentra&nbsp;el&nbsp;producto.<br>
+&nbsp;<br>
+Returns<br>
+---------<br>
+id_sucursal&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ID&nbsp;de&nbsp;la&nbsp;sucursal&nbsp;en&nbsp;la&nbsp;que&nbsp;se&nbsp;encuentra&nbsp;el&nbsp;producto.</span></dd></dl>
+
+<dl><dt><a name="Producto-decide_edita_elimina"><strong>decide_edita_elimina</strong></a>(id)</dt><dd><span class="code">Elimina&nbsp;o&nbsp;edita&nbsp;el&nbsp;producto&nbsp;correspondiente&nbsp;al&nbsp;ID&nbsp;que&nbsp;recibe.<br>
+En&nbsp;caso&nbsp;de&nbsp;no&nbsp;hallarlo,&nbsp;imprime&nbsp;un&nbsp;mensaje&nbsp;indicando&nbsp;que&nbsp;no&nbsp;se<br>
+encontró&nbsp;en&nbsp;el&nbsp;archivo.<br>
+&nbsp;<br>
+Parameter<br>
+---------<br>
+id&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ID&nbsp;del&nbsp;producto.</span></dd></dl>
+
+<dl><dt><a name="Producto-edita"><strong>edita</strong></a>(id)</dt><dd><span class="code">Indica&nbsp;que&nbsp;el&nbsp;producto&nbsp;debe&nbsp;editarse.<br>
+&nbsp;<br>
+Parameter<br>
+---------<br>
+id&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ID&nbsp;del&nbsp;prodcuto.</span></dd></dl>
+
+<dl><dt><a name="Producto-elimina"><strong>elimina</strong></a>(id)</dt><dd><span class="code">Indica&nbsp;que&nbsp;el&nbsp;producto&nbsp;debe&nbsp;eliminarse.<br>
+&nbsp;<br>
+Parameter<br>
+---------<br>
+id&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ID&nbsp;del&nbsp;producto.</span></dd></dl>
+
+<dl><dt><a name="Producto-existe_sucursal"><strong>existe_sucursal</strong></a>(id_sucursal)</dt><dd><span class="code">Verifica&nbsp;si&nbsp;existe&nbsp;la&nbsp;sucursal.<br>
+&nbsp;<br>
+Paramater<br>
+---------<br>
+id_sucursal&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ID&nbsp;de&nbsp;la&nbsp;sucursal<br>
+&nbsp;<br>
+Returns<br>
+---------<br>
+Boolean<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Verdadero&nbsp;si&nbsp;y&nbsp;solo&nbsp;si&nbsp;existe&nbsp;la&nbsp;sucursal.</span></dd></dl>
+
+<dl><dt><a name="Producto-get_datos"><strong>get_datos</strong></a>()</dt><dd><span class="code">Junta&nbsp;los&nbsp;datos&nbsp;de&nbsp;un&nbsp;producto&nbsp;y&nbsp;los&nbsp;coloca&nbsp;en&nbsp;un&nbsp;arreglo.<br>
+&nbsp;<br>
+Returns<br>
+---------<br>
+array<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Datos&nbsp;del&nbsp;producto.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>debe_editar</strong> = False</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

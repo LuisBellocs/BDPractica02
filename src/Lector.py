@@ -4,6 +4,22 @@ class Lector:
 
     @staticmethod
     def encuentra_fila_entidad(cadenaEntidad, id):
+        """
+        Busca la fila correspondiente a una entidad y la devuelve.
+
+        Parameter
+        ---------
+        cadenaEntidad : str
+            Tipo de entidad a buscar.
+
+        id : str
+            ID de la entidad a buscar.
+
+        Returns
+        ---------
+        dato : str
+            Entidad y sus datos.
+        """
         dato = ""
         try:
             with open(f'{cadenaEntidad}.csv') as entidad:
@@ -18,6 +34,22 @@ class Lector:
     
     @staticmethod
     def lee(entidad, id):
+        """
+        Decide en qué entidad se debe buscar.
+
+        Parameter
+        ---------
+        entidad : str
+            Código de la entidad.
+
+        id : str
+            ID de la entidad a buscar.
+
+        Returns
+        ---------
+        str
+            Entidad y sus datos.
+        """
         cadenaEntidad = ""
         if (entidad == 1):
             cadenaEntidad = "empleados"
@@ -30,6 +62,17 @@ class Lector:
 
     @staticmethod
     def imprime(entidad, id):
+        """
+        Imprime los datos de una entidad con formato legible.
+
+        Parameter
+        ---------
+        entidad : str
+            Tipo de entidad a imprimir.
+
+        id : str
+            ID de la entidad a imprimir.
+        """
         datos = Lector.lee(entidad, id)
         if(datos == ""):
             return ""
