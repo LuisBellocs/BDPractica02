@@ -29,14 +29,22 @@ class Producto:
     @staticmethod
     def decide_edita_elimina(id):
         listaProductos = []
+        encontrado = False
         with open('productos.csv', 'r+') as productos:
                 reader = csv.reader(productos, delimiter='æ')
                 writer = csv.writer(productos, delimiter='æ')
                 for producto in reader:
+                    if(producto[0] == id):
+                        encontrado = True
                     if (producto[0] == id and Producto.debe_editar):
                         listaProductos.append(Producto.get_datos())
                     if (producto[0] != id):
                         listaProductos.append(producto)
+
+        if(encontrado == False):
+            print("No se encontró el ID del producto")
+        else:
+            print("Operación completada con éxito")
 
         nuevosProductos = open('productos.csv', 'w')
         with nuevosProductos:

@@ -29,14 +29,22 @@ class Empleado:
     @staticmethod
     def elimina_o_edita(id):
         listaEmpleados = []
+        encontrado = False
         with open('empleados.csv', 'r+') as empleados:
             reader = csv.reader(empleados, delimiter='æ')
             writer = csv.writer(empleados, delimiter='æ')
             for empleado in reader:
+                if(empleado[0] == id):
+                    encontrado = True
                 if (empleado[0] == id and Empleado.debe_editarse):
                     listaEmpleados.append(Empleado.get_datos())
                 if (empleado[0] != id):
                     listaEmpleados.append(empleado)
+
+        if(encontrado == False):
+            print("No se encontró el CURP del empleado")
+        else:
+            print("Operación completada con éxito")
 
         nuevosEmpleados = open('empleados.csv', 'w')
         with nuevosEmpleados:
@@ -86,8 +94,7 @@ class Empleado:
                         break
 
             repetido = Lector.lee(1, curp)
-            if(repetido != "" and repetido[0] == curp and
-                Empleado.debe_editarse == False):
+            if(repetido != "" and repetido[0] == curp):
                 print("Ya existe un empleado con ese CURP, intente de nuevo.")
                 curp = ""
                 continue
@@ -115,7 +122,7 @@ class Empleado:
             telefonos = dato.split(";")
             for numero in telefonos:
                 if(len(numero) < 7):
-                    print("Alguno de los datos es inválido, intente de nuevo.")
+                    print("Los números deben contener al menos 7 dígitos, intente de nuevo.")
                     dato = ""
                     break
                 try:
@@ -141,7 +148,7 @@ class Empleado:
     @staticmethod
     def checarNombre():
         while True:
-            nombre = input("Nombre completo: ")
+            nombre = input("Nombre completo (al menos un nombre y un apellido): ")
             if(all(c.isalpha() or c.isspace() for c in nombre) and len(nombre) > 2 and " " in nombre and (nombre[1] != " ") and (nombre[-1] != " ")):
                 return nombre
             else:

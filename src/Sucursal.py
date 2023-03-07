@@ -29,14 +29,21 @@ class Sucursal:
     @staticmethod
     def elimina_o_edita(id):
         listaSucursales = []
+        encontrado = False
         with open('sucursales.csv', 'r+') as sucursales:
                 reader = csv.reader(sucursales, delimiter='æ')
                 writer = csv.writer(sucursales, delimiter='æ')
                 for sucursal in reader:
+                    if(sucursal[0] == id):
+                        encontrado = True
                     if (sucursal[0] == id and Sucursal.debe_editarse):
                         listaSucursales.append(Sucursal.get_datos())
                     if (sucursal[0] != id):
                         listaSucursales.append(sucursal)
+        if(encontrado == False):
+            print("No se encontró el ID de la Sucursal")
+        else:
+            print("Operación completada con éxito")
 
         nuevasSucursales = open('sucursales.csv', 'w')
         with nuevasSucursales:
