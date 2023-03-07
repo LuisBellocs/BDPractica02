@@ -1,4 +1,5 @@
 import csv
+import sys
 import datetime
 from Lector import Lector
 
@@ -52,9 +53,10 @@ class Producto:
         tiendas = Producto.checarInt("Número de tiendas con el producto")
         stock = ""
         for i in range(0,tiendas):
-            stock += input("Nombre de la tienda {}: \n".format(i+1))
+            stock += Producto.checarSucursal(i+1)
             stock += ":"
             stock += str(Producto.checarInt(f"Cantidad en la tienda {i+1}"))
+            stock += ";"
         refrigeracion = Producto.checarRefrigeracion()
         preparación = Producto.checarFecha("preparación")
         caducidad = Producto.checarFecha("caducidad")
@@ -137,3 +139,27 @@ class Producto:
                 print("Este valor debe de ser numérico, intente de nuevo.")
                 dato = -1
         return dato
+
+    @staticmethod
+    def checarSucursal(numero):
+        while (True):
+            id_sucursal = input(f"ID de la sucursal {numero}: \n")
+            if (not id_sucursal.isdigit()):
+                print("La id debe de ser un numero entero positivo")
+            elif (not Producto.existe_sucursal(id_sucursal)):
+                print("Dicha sucursal no existe")
+            else:
+                return id_sucursal
+
+    @staticmethod
+    def existe_sucursal(id_sucursal):
+        try:
+            with open('sucursales.csv', 'r+') as sucursales:
+                reader = csv.reader(sucursales, delimiter='æ')
+                for sucursal in reader:
+                    if (sucursal[0] == id_sucursal):
+                        return True
+        except: 
+            print("El archivo sucursales.csv no pudo ser encontrado.")
+            sys.exit(0)
+        return False

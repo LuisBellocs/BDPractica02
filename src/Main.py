@@ -60,24 +60,33 @@ class Main:
             if (entidad == 1):
                 if (accion == 1):
                     Empleado.agrega()
+                    print("Empleado agregado con éxito")
                 elif (accion == 3):
                     Empleado.edita(id)
+                    print("Empleado editado con éxito")
                 else:
                     Empleado.elimina(id)
+                    print("Empleado eliminado con éxito")
             elif (entidad == 2):
                 if (accion == 1):
                     Producto.agrega()
+                    print("Producto agregado con éxito")
                 elif (accion == 3):
                     Producto.edita(id)
+                    print("Producto editado con éxito")
                 else:
                     Producto.elimina(id)
+                    print("Producto eliminado con éxito")
             else:
                 if (accion == 1):
                     Sucursal.agrega()
+                    print("Sucursal agregada con éxito")
                 elif (accion == 3):
                     Sucursal.edita(id)
+                    print("Sucursal editada con éxito")
                 else:
                     Sucursal.elimina(id)
+                    print("Sucursal eliminada con éxito")
     main()        
 
     if __name__ == "__main__":

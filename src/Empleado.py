@@ -1,4 +1,5 @@
 import csv
+import sys
 import datetime
 from Lector import Lector
 
@@ -65,13 +66,6 @@ class Empleado:
                 print("La CURP debe tener 18 caracteres.")
                 curp = ""
                 continue
-
-            repetido = Lector.lee(1, id)
-            if(repetido != "" and repetido[0] == id and
-                Empleado.debe_editarse == False):
-                print("Ya existe un empleado con ese CURP, intente de nuevo.")
-                curp = ""
-                continue
             
             for i in range(18):
                 c = curp[i]
@@ -90,6 +84,13 @@ class Empleado:
                         print("Los caracteres del 5 al 10 y el 18 deben de ser números.")
                         curp = ""
                         break
+
+            repetido = Lector.lee(1, curp)
+            if(repetido != "" and repetido[0] == curp and
+                Empleado.debe_editarse == False):
+                print("Ya existe un empleado con ese CURP, intente de nuevo.")
+                curp = ""
+                continue
 
         return curp
     
@@ -149,7 +150,7 @@ class Empleado:
     @staticmethod
     def checarSucursal():
         while (True):
-            id_sucursal = input("Agrega la id de la id_sucursal: \n")
+            id_sucursal = input("Agrega la id de la sucursal: \n")
             if (not id_sucursal.isdigit()):
                 print("La id debe de ser un numero entero positivo")
             elif (not Empleado.existe_sucursal(id_sucursal)):
@@ -159,13 +160,15 @@ class Empleado:
 
     @staticmethod
     def existe_sucursal(id_sucursal):
-        with open('sucursales.csv', 'r+') as sucursales:
-            reader = csv.reader(sucursales, delimiter='æ')
-            writer = csv.writer(sucursales, delimiter='æ')
-            for sucursal in reader:
-                if (sucursal[0] == id_sucursal):
-                    return True
-
+        try:
+            with open('sucursales.csv', 'r+') as sucursales:
+                reader = csv.reader(sucursales, delimiter='æ')
+                for sucursal in reader:
+                    if (sucursal[0] == id_sucursal):
+                        return True
+        except:
+            print("El archivo sucursales.csv no pudo ser encontrado.")
+            sys.exit(0)
         return False
 
     @staticmethod
